@@ -8,4 +8,6 @@ The icons were obtained from http://www.designdeck.co.uk/a/1271
 
 Author
 ===
+- Carlos Rodríguez
 - [Twitter (@carlosrgzm)](http://twitter.com/carlosrgzm)
+- [LinkedIn](http://es.linkedin.com/in/carlosrgzm)

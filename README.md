@@ -2,5 +2,5 @@ This module is an adaptation of the plugin sharrre v1.3.4 (beta) created by Juli
 
 See https://github.com/carlosrgzm/socialsharrre/wiki for more information about installation on Prestashop v1.5.x
 
-The icons I've used were obtained from http://www.designdeck.co.uk/a/1271
+The icons were obtained from http://www.designdeck.co.uk/a/1271
 

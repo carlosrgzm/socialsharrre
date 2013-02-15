@@ -1,0 +1,124 @@
+/*redes sociales*/
+.sharrre {
+    margin: 5px 0 0 5px;
+    float: left;
+
+}
+
+.sharrre .box a:hover {
+    text-decoration: none;
+}
+
+.sharrre .box a:link {
+    text-decoration: none;
+}
+
+.sharrre .count {
+    color: #525b67;
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    /*line-height:40px;*/
+    height: 20px;
+    position: relative;
+    text-align: center;
+    width: 32px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #b2c6cc;
+    background: #fbfbfb; /* Old browsers */
+    background: -moz-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fbfbfb), color-stop(100%, #f6f6f6)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* IE10+ */
+    background: linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fbfbfb', endColorstr = '#f6f6f6', GradientType = 0); /* IE6-9 */
+}
+
+.sharrre .share {
+    color: #FFFFFF;
+    display: block;
+    font-size: 9px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 8px;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 50px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.sharrre .count:before, .sharrre .count:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 49%;
+    width: 0;
+    height: 0;
+}
+
+.sharrre .count:before {
+    border: solid 7px transparent;
+    border-top-color: #b2c6cc;
+    margin-left: -7px;
+    bottom: -14px;
+}
+
+.sharrre .count:after {
+    border: solid 6px transparent;
+    margin-left: -6px;
+    bottom: -12px;
+    border-top-color: #fbfbfb;
+}
+
+#twitter .share {
+    width: 32px;
+    height: 32px;
+    background-image: url('icons/twitter.png');
+}
+
+#facebook .share {
+    width: 32px;
+    height: 32px;
+    background-image: url('icons/facebook.png');
+}
+
+#googlePlus .share {
+    width: 32px;
+    height: 32px;
+    background-image: url('icons/g+.png');
+}
+
+#pinterest .share {
+    width: 32px;
+    height: 32px;
+    background-image: url('icons/pinterest.png');
+}
+
+.share {
+    border: 1px solid;
+    color: #ffffff;
+    display: block;
+    font-size: 9px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 8px;
+    padding-top: 0pt;
+    padding-right: 0pt;
+    padding-bottom: 0pt;
+    padding-left: 0pt;
+    text-align: center;
+    width: 50px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+}

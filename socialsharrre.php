@@ -96,7 +96,7 @@ class socialsharrre extends Module
             );
         }
 
-        $imageLink = $link->getImageLink($productLink, $cover['id_image'], 'large');
+        $imageLink = $link->getImageLink($productLink, $cover['id_image']);
 
         $smarty->assign(
             array(

@@ -26,15 +26,19 @@ class socialsharrre extends Module
         }
     }
 
-
+    /**
+     * @return mixed
+     */
     public function install()
     {
         return (parent::install() AND $this->registerHook('extraLeft'));
     }
 
+    /**
+     * @return bool
+     */
     public function uninstall()
     {
-        //return (parent::uninstall() AND $this->unregisterHook(Hook::getIdByName('extraLeft')));
         if (!parent::uninstall() ||
             !Configuration::deleteByName('socialsharrre')
         ) {
@@ -43,6 +47,10 @@ class socialsharrre extends Module
         return true;
     }
 
+    /**
+     * @param $params
+     * @return string
+     */
     public function hookExtraLeft($params)
     {
         global $smarty, $cookie, $link;

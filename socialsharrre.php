@@ -112,6 +112,4 @@ class socialsharrre extends Module
             )
         );
     }
-
-
 }

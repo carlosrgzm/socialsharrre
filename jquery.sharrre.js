@@ -1,6 +1,6 @@
-/*
+/*!
  *  Sharrre.com - Make your sharing widget!
- *  Version: beta 1.3.3 
+ *  Version: beta 1.3.5
  *  Author: Julien Hany
  *  License: MIT http://en.wikipedia.org/wiki/MIT_License or GPLv2 http://en.wikipedia.org/wiki/GNU_General_Public_License
  */
@@ -28,9 +28,9 @@
             title: '',
             url: document.location.href,
             text: document.title,
-            urlCurl: '/modules/socialsharrre/sharrre.php', //PHP script for google plus...
+            urlCurl: 'sharrre.php',  //PHP script for google plus...
             count: {}, //counter by social network
-            total: 0, //total of sharing
+            total: 0,  //total of sharing
             shorterTotal: true, //show total by k or M when number is to big
             enableHover: true, //disable if you want to personalize hover event with callback
             enableCounter: true, //disable if you just want use buttons
@@ -45,15 +45,15 @@
             }, //personalize render event with this callback function
             buttons: {  //settings for buttons
                 googlePlus: {  //http://www.google.com/webmasters/+1/button/
-                    url: '', //if you need to personnalize button url
-                    urlCount: false, //if you want to use personnalize button url on global counter
+                    url: '',  //if you need to personnalize button url
+                    urlCount: false,  //if you want to use personnalize button url on global counter
                     size: 'medium',
                     lang: 'en-US',
                     annotation: ''
                 },
                 facebook: { //http://developers.facebook.com/docs/reference/plugins/like/
-                    url: '', //if you need to personalize url button
-                    urlCount: false, //if you want to use personnalize button url on global counter
+                    url: '',  //if you need to personalize url button
+                    urlCount: false,  //if you want to use personnalize button url on global counter
                     action: 'like',
                     layout: 'button_count',
                     width: '',
@@ -64,8 +64,8 @@
                     lang: 'en_US'
                 },
                 twitter: {  //http://twitter.com/about/resources/tweetbutton
-                    url: '', //if you need to personalize url button
-                    urlCount: false, //if you want to use personnalize button url on global counter
+                    url: '',  //if you need to personalize url button
+                    urlCount: false,  //if you want to use personnalize button url on global counter
                     count: 'horizontal',
                     hashtags: '',
                     via: '',
@@ -73,27 +73,27 @@
                     lang: 'en'
                 },
                 digg: { //http://about.digg.com/downloads/button/smart
-                    url: '', //if you need to personalize url button
-                    urlCount: false, //if you want to use personnalize button url on global counter
+                    url: '',  //if you need to personalize url button
+                    urlCount: false,  //if you want to use personnalize button url on global counter
                     type: 'DiggCompact'
                 },
                 delicious: {
-                    url: '', //if you need to personalize url button
-                    urlCount: false, //if you want to use personnalize button url on global counter
+                    url: '',  //if you need to personalize url button
+                    urlCount: false,  //if you want to use personnalize button url on global counter
                     size: 'medium' //medium or tall
                 },
                 stumbleupon: {  //http://www.stumbleupon.com/badges/
-                    url: '', //if you need to personalize url button
-                    urlCount: false, //if you want to use personnalize button url on global counter
+                    url: '',  //if you need to personalize url button
+                    urlCount: false,  //if you want to use personnalize button url on global counter
                     layout: '1'
                 },
                 linkedin: {  //http://developer.linkedin.com/plugins/share-button
-                    url: '', //if you need to personalize url button
-                    urlCount: false, //if you want to use personnalize button url on global counter
+                    url: '',  //if you need to personalize url button
+                    urlCount: false,  //if you want to use personnalize button url on global counter
                     counter: ''
                 },
                 pinterest: { //http://pinterest.com/about/goodies/
-                    url: '', //if you need to personalize url button
+                    url: '',  //if you need to personalize url button
                     media: '',
                     description: '',
                     layout: 'horizontal'
@@ -116,7 +116,7 @@
             //stumbleupon: "http://www.stumbleupon.com/services/1.01/badge.getinfo?url={url}&format=jsonp&callback=?",
             stumbleupon: "",
             linkedin: "http://www.linkedin.com/countserv/count/share?format=jsonp&url={url}&callback=?",
-            pinterest: ""
+            pinterest: "http://api.pinterest.com/v1/urls/count.json?url={url}&callback=?"
         },
     /* Load share buttons asynchronously
      ================================================== */
@@ -386,11 +386,8 @@
     Plugin.prototype.init = function () {
         var self = this;
         if (this.options.urlCurl !== '') {
-
-            console.log(this.options.urlCurl);
             urlJson.googlePlus = this.options.urlCurl + '?url={url}&type=googlePlus'; // PHP script for GooglePlus...
             urlJson.stumbleupon = this.options.urlCurl + '?url={url}&type=stumbleupon'; // PHP script for Stumbleupon...
-            urlJson.pinterest = this.options.urlCurl + '?url={url}&type=pinterest'; // PHP script for Pinterest...
         }
         $(this.element).addClass(this.options.className); //add class
 
@@ -476,7 +473,7 @@
         //console.log('name : ' + name + ' - url : '+url); //debug
         if (url != '' && self.options.urlCurl !== '') {  //urlCurl = '' if you don't want to used PHP script but used social button
             $.getJSON(url, function (json) {
-                if (typeof json.count !== "undefined") {  //GooglePlus, Stumbleupon, Twitter and Digg
+                if (typeof json.count !== "undefined") {  //GooglePlus, Stumbleupon, Twitter, Pinterest and Digg
                     var temp = json.count + '';
                     temp = temp.replace('\u00c2\u00a0', '');  //remove google plus special chars
                     count += parseInt(temp, 10);

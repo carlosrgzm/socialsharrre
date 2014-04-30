@@ -12,121 +12,121 @@
      ================================================== */
     var pluginName = 'sharrre',
         defaults = {
-            className:'sharrre',
-            share:{
-                googlePlus:false,
-                facebook:false,
-                twitter:false,
-                digg:false,
-                delicious:false,
-                stumbleupon:false,
-                linkedin:false,
-                pinterest:false
+            className: 'sharrre',
+            share: {
+                googlePlus: false,
+                facebook: false,
+                twitter: false,
+                digg: false,
+                delicious: false,
+                stumbleupon: false,
+                linkedin: false,
+                pinterest: false
             },
-            shareTotal:0,
-            template:'',
-            title:'',
-            url:document.location.href,
-            text:document.title,
-            urlCurl:'/modules/socialsharrre/sharrre.php', //PHP script for google plus...
-            count:{}, //counter by social network
-            total:0, //total of sharing
-            shorterTotal:true, //show total by k or M when number is to big
-            enableHover:true, //disable if you want to personalize hover event with callback
-            enableCounter:true, //disable if you just want use buttons
-            enableTracking:false, //tracking with google analitycs
-            hover:function () {
+            shareTotal: 0,
+            template: '',
+            title: '',
+            url: document.location.href,
+            text: document.title,
+            urlCurl: '/modules/socialsharrre/sharrre.php', //PHP script for google plus...
+            count: {}, //counter by social network
+            total: 0, //total of sharing
+            shorterTotal: true, //show total by k or M when number is to big
+            enableHover: true, //disable if you want to personalize hover event with callback
+            enableCounter: true, //disable if you just want use buttons
+            enableTracking: false, //tracking with google analitycs
+            hover: function () {
             }, //personalize hover event with this callback function
-            hide:function () {
+            hide: function () {
             }, //personalize hide event with this callback function
-            click:function () {
+            click: function () {
             }, //personalize click event with this callback function
-            render:function () {
+            render: function () {
             }, //personalize render event with this callback function
-            buttons:{  //settings for buttons
-                googlePlus:{  //http://www.google.com/webmasters/+1/button/
-                    url:'', //if you need to personnalize button url
-                    urlCount:false, //if you want to use personnalize button url on global counter
-                    size:'medium',
-                    lang:'en-US',
-                    annotation:''
+            buttons: {  //settings for buttons
+                googlePlus: {  //http://www.google.com/webmasters/+1/button/
+                    url: '', //if you need to personnalize button url
+                    urlCount: false, //if you want to use personnalize button url on global counter
+                    size: 'medium',
+                    lang: 'en-US',
+                    annotation: ''
                 },
-                facebook:{ //http://developers.facebook.com/docs/reference/plugins/like/
-                    url:'', //if you need to personalize url button
-                    urlCount:false, //if you want to use personnalize button url on global counter
-                    action:'like',
-                    layout:'button_count',
-                    width:'',
-                    send:'false',
-                    faces:'false',
-                    colorscheme:'',
-                    font:'',
-                    lang:'en_US'
+                facebook: { //http://developers.facebook.com/docs/reference/plugins/like/
+                    url: '', //if you need to personalize url button
+                    urlCount: false, //if you want to use personnalize button url on global counter
+                    action: 'like',
+                    layout: 'button_count',
+                    width: '',
+                    send: 'false',
+                    faces: 'false',
+                    colorscheme: '',
+                    font: '',
+                    lang: 'en_US'
                 },
-                twitter:{  //http://twitter.com/about/resources/tweetbutton
-                    url:'', //if you need to personalize url button
-                    urlCount:false, //if you want to use personnalize button url on global counter
-                    count:'horizontal',
-                    hashtags:'',
-                    via:'',
-                    related:'',
-                    lang:'en'
+                twitter: {  //http://twitter.com/about/resources/tweetbutton
+                    url: '', //if you need to personalize url button
+                    urlCount: false, //if you want to use personnalize button url on global counter
+                    count: 'horizontal',
+                    hashtags: '',
+                    via: '',
+                    related: '',
+                    lang: 'en'
                 },
-                digg:{ //http://about.digg.com/downloads/button/smart
-                    url:'', //if you need to personalize url button
-                    urlCount:false, //if you want to use personnalize button url on global counter
-                    type:'DiggCompact'
+                digg: { //http://about.digg.com/downloads/button/smart
+                    url: '', //if you need to personalize url button
+                    urlCount: false, //if you want to use personnalize button url on global counter
+                    type: 'DiggCompact'
                 },
-                delicious:{
-                    url:'', //if you need to personalize url button
-                    urlCount:false, //if you want to use personnalize button url on global counter
-                    size:'medium' //medium or tall
+                delicious: {
+                    url: '', //if you need to personalize url button
+                    urlCount: false, //if you want to use personnalize button url on global counter
+                    size: 'medium' //medium or tall
                 },
-                stumbleupon:{  //http://www.stumbleupon.com/badges/
-                    url:'', //if you need to personalize url button
-                    urlCount:false, //if you want to use personnalize button url on global counter
-                    layout:'1'
+                stumbleupon: {  //http://www.stumbleupon.com/badges/
+                    url: '', //if you need to personalize url button
+                    urlCount: false, //if you want to use personnalize button url on global counter
+                    layout: '1'
                 },
-                linkedin:{  //http://developer.linkedin.com/plugins/share-button
-                    url:'', //if you need to personalize url button
-                    urlCount:false, //if you want to use personnalize button url on global counter
-                    counter:''
+                linkedin: {  //http://developer.linkedin.com/plugins/share-button
+                    url: '', //if you need to personalize url button
+                    urlCount: false, //if you want to use personnalize button url on global counter
+                    counter: ''
                 },
-                pinterest:{ //http://pinterest.com/about/goodies/
-                    url:'', //if you need to personalize url button
-                    media:'',
-                    description:'',
-                    layout:'horizontal'
+                pinterest: { //http://pinterest.com/about/goodies/
+                    url: '', //if you need to personalize url button
+                    media: '',
+                    description: '',
+                    layout: 'horizontal'
                 }
             }
         },
     /* Json URL to get count number
      ================================================== */
         urlJson = {
-            googlePlus:"",
+            googlePlus: "",
 
             //new FQL method by Sire
-            facebook:"https://graph.facebook.com/fql?q=SELECT%20url,%20normalized_url,%20share_count,%20like_count,%20comment_count,%20total_count,commentsbox_count,%20comments_fbid,%20click_count%20FROM%20link_stat%20WHERE%20url=%27{url}%27&callback=?",
+            facebook: "https://graph.facebook.com/fql?q=SELECT%20url,%20normalized_url,%20share_count,%20like_count,%20comment_count,%20total_count,commentsbox_count,%20comments_fbid,%20click_count%20FROM%20link_stat%20WHERE%20url=%27{url}%27&callback=?",
             //old method facebook: "http://graph.facebook.com/?id={url}&callback=?",
             //facebook : "http://api.ak.facebook.com/restserver.php?v=1.0&method=links.getStats&urls={url}&format=json"
 
-            twitter:"http://cdn.api.twitter.com/1/urls/count.json?url={url}&callback=?",
-            digg:"http://services.digg.com/2.0/story.getInfo?links={url}&type=javascript&callback=?",
-            delicious:'http://feeds.delicious.com/v2/json/urlinfo/data?url={url}&callback=?',
+            twitter: "http://cdn.api.twitter.com/1/urls/count.json?url={url}&callback=?",
+            digg: "http://services.digg.com/2.0/story.getInfo?links={url}&type=javascript&callback=?",
+            delicious: 'http://feeds.delicious.com/v2/json/urlinfo/data?url={url}&callback=?',
             //stumbleupon: "http://www.stumbleupon.com/services/1.01/badge.getinfo?url={url}&format=jsonp&callback=?",
-            stumbleupon:"",
-            linkedin:"http://www.linkedin.com/countserv/count/share?format=jsonp&url={url}&callback=?",
-            pinterest:""
+            stumbleupon: "",
+            linkedin: "http://www.linkedin.com/countserv/count/share?format=jsonp&url={url}&callback=?",
+            pinterest: ""
         },
     /* Load share buttons asynchronously
      ================================================== */
         loadButton = {
-            googlePlus:function (self) {
+            googlePlus: function (self) {
                 var sett = self.options.buttons.googlePlus;
                 //$(self.element).find('.buttons').append('<div class="button googleplus"><g:plusone size="'+self.options.buttons.googlePlus.size+'" href="'+self.options.url+'"></g:plusone></div>');
                 $(self.element).find('.buttons').append('<div class="button googleplus"><div class="g-plusone" data-size="' + sett.size + '" data-href="' + (sett.url !== '' ? sett.url : self.options.url) + '" data-annotation="' + sett.annotation + '"></div></div>');
                 window.___gcfg = {
-                    lang:self.options.buttons.googlePlus.lang
+                    lang: self.options.buttons.googlePlus.lang
                 };
                 var loading = 0;
                 if (typeof gapi === 'undefined' && loading == 0) {
@@ -144,7 +144,7 @@
                     gapi.plusone.go();
                 }
             },
-            facebook:function (self) {
+            facebook: function (self) {
                 var sett = self.options.buttons.facebook;
                 $(self.element).find('.buttons').append('<div class="button facebook"><div id="fb-root"></div><div class="fb-like" data-href="' + (sett.url !== '' ? sett.url : self.options.url) + '" data-send="' + sett.send + '" data-layout="' + sett.layout + '" data-width="' + sett.width + '" data-show-faces="' + sett.faces + '" data-action="' + sett.action + '" data-colorscheme="' + sett.colorscheme + '" data-font="' + sett.font + '" data-via="' + sett.via + '"></div></div>');
                 var loading = 0;
@@ -165,7 +165,7 @@
                     FB.XFBML.parse();
                 }
             },
-            twitter:function (self) {
+            twitter: function (self) {
                 var sett = self.options.buttons.twitter;
                 $(self.element).find('.buttons').append('<div class="button twitter"><a href="https://twitter.com/share" class="twitter-share-button" data-url="' + (sett.url !== '' ? sett.url : self.options.url) + '" data-count="' + sett.count + '" data-text="' + self.options.text + '" data-via="' + sett.via + '" data-hashtags="' + sett.hashtags + '" data-related="' + sett.related + '" data-lang="' + sett.lang + '">Tweet</a></div>');
                 var loading = 0;
@@ -181,10 +181,10 @@
                     })();
                 }
                 else {
-                    $.ajax({ url:'//platform.twitter.com/widgets.js', dataType:'script', cache:true}); //http://stackoverflow.com/q/6536108
+                    $.ajax({ url: '//platform.twitter.com/widgets.js', dataType: 'script', cache: true}); //http://stackoverflow.com/q/6536108
                 }
             },
-            digg:function (self) {
+            digg: function (self) {
                 var sett = self.options.buttons.digg;
                 $(self.element).find('.buttons').append('<div class="button digg"><a class="DiggThisButton ' + sett.type + '" rel="nofollow external" href="http://digg.com/submit?url=' + encodeURIComponent((sett.url !== '' ? sett.url : self.options.url)) + '"></a></div>');
                 var loading = 0;
@@ -199,7 +199,7 @@
                     })();
                 }
             },
-            delicious:function (self) {
+            delicious: function (self) {
                 if (self.options.buttons.delicious.size == 'tall') {//tall
                     var css = 'width:50px;',
                         cssCount = 'height:35px;width:50px;font-size:15px;line-height:35px;',
@@ -224,7 +224,7 @@
                     self.openPopup('delicious');
                 });
             },
-            stumbleupon:function (self) {
+            stumbleupon: function (self) {
                 var sett = self.options.buttons.stumbleupon;
                 $(self.element).find('.buttons').append('<div class="button stumbleupon"><su:badge layout="' + sett.layout + '" location="' + (sett.url !== '' ? sett.url : self.options.url) + '"></su:badge></div>');
                 var loading = 0;
@@ -249,7 +249,7 @@
                     STMBLPN.processWidgets();
                 }
             },
-            linkedin:function (self) {
+            linkedin: function (self) {
                 var sett = self.options.buttons.linkedin;
                 $(self.element).find('.buttons').append('<div class="button linkedin"><script type="in/share" data-url="' + (sett.url !== '' ? sett.url : self.options.url) + '" data-counter="' + sett.counter + '"></script></div>');
                 var loading = 0;
@@ -268,7 +268,7 @@
                     window.IN.init();
                 }
             },
-            pinterest:function (self) {
+            pinterest: function (self) {
                 var sett = self.options.buttons.pinterest;
                 $(self.element).find('.buttons').append('<div class="button pinterest"><a href="http://pinterest.com/pin/create/button/?url=' + (sett.url !== '' ? sett.url : self.options.url) + '&media=' + sett.media + '&description=' + sett.description + '" class="pin-it-button" count-layout="' + sett.layout + '">Pin It</a></div>');
 
@@ -285,9 +285,9 @@
     /* Tracking for Google Analytics
      ================================================== */
         tracking = {
-            googlePlus:function () {
+            googlePlus: function () {
             },
-            facebook:function () {
+            facebook: function () {
                 //console.log('facebook');
                 fb = window.setInterval(function () {
                     if (typeof FB !== 'undefined') {
@@ -305,7 +305,7 @@
                     }
                 }, 1000);
             },
-            twitter:function () {
+            twitter: function () {
                 //console.log('twitter');
                 tw = window.setInterval(function () {
                     if (typeof twttr !== 'undefined') {
@@ -319,50 +319,50 @@
                     }
                 }, 1000);
             },
-            digg:function () {
+            digg: function () {
                 //if somenone find a solution, mail me !
                 /*$(this.element).find('.digg').on('click', function(){
                  _gaq.push(['_trackSocial', 'digg', 'add']);
                  });*/
             },
-            delicious:function () {
+            delicious: function () {
             },
-            stumbleupon:function () {
+            stumbleupon: function () {
             },
-            linkedin:function () {
+            linkedin: function () {
                 function LinkedInShare() {
                     _gaq.push(['_trackSocial', 'linkedin', 'share']);
                 }
             },
-            pinterest:function () {
+            pinterest: function () {
                 //if somenone find a solution, mail me !
             }
         },
     /* Popup for each social network
      ================================================== */
         popup = {
-            googlePlus:function (opt) {
+            googlePlus: function (opt) {
                 window.open("https://plus.google.com/share?hl=" + opt.buttons.googlePlus.lang + "&url=" + encodeURIComponent((opt.buttons.googlePlus.url !== '' ? opt.buttons.googlePlus.url : opt.url)), "", "toolbar=0, status=0, width=900, height=500");
             },
-            facebook:function (opt) {
+            facebook: function (opt) {
                 window.open("http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent((opt.buttons.facebook.url !== '' ? opt.buttons.facebook.url : opt.url)) + "&t=" + opt.text + "", "", "toolbar=0, status=0, width=900, height=500");
             },
-            twitter:function (opt) {
+            twitter: function (opt) {
                 window.open("https://twitter.com/intent/tweet?text=" + encodeURIComponent(opt.text) + "&url=" + encodeURIComponent((opt.buttons.twitter.url !== '' ? opt.buttons.twitter.url : opt.url)) + (opt.buttons.twitter.via !== '' ? '&via=' + opt.buttons.twitter.via : ''), "", "toolbar=0, status=0, width=650, height=360");
             },
-            digg:function (opt) {
+            digg: function (opt) {
                 window.open("http://digg.com/tools/diggthis/submit?url=" + encodeURIComponent((opt.buttons.digg.url !== '' ? opt.buttons.digg.url : opt.url)) + "&title=" + opt.text + "&related=true&style=true", "", "toolbar=0, status=0, width=650, height=360");
             },
-            delicious:function (opt) {
+            delicious: function (opt) {
                 window.open('http://www.delicious.com/save?v=5&noui&jump=close&url=' + encodeURIComponent((opt.buttons.delicious.url !== '' ? opt.buttons.delicious.url : opt.url)) + '&title=' + opt.text, 'delicious', 'toolbar=no,width=550,height=550');
             },
-            stumbleupon:function (opt) {
+            stumbleupon: function (opt) {
                 window.open('http://www.stumbleupon.com/badge/?url=' + encodeURIComponent((opt.buttons.delicious.url !== '' ? opt.buttons.delicious.url : opt.url)), 'stumbleupon', 'toolbar=no,width=550,height=550');
             },
-            linkedin:function (opt) {
+            linkedin: function (opt) {
                 window.open('https://www.linkedin.com/cws/share?url=' + encodeURIComponent((opt.buttons.delicious.url !== '' ? opt.buttons.delicious.url : opt.url)) + '&token=&isFramed=true', 'linkedin', 'toolbar=no,width=550,height=550');
             },
-            pinterest:function (opt) {
+            pinterest: function (opt) {
                 window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent((opt.buttons.pinterest.url !== '' ? opt.buttons.pinterest.url : opt.url)) + '&media=' + encodeURIComponent(opt.buttons.pinterest.media) + '&description=' + opt.buttons.pinterest.description, 'pinterest', 'toolbar=no,width=700,height=300');
             }
         };
@@ -560,14 +560,14 @@
         popup[site](this.options);  //open
         if (this.options.enableTracking === true) { //tracking!
             var tracking = {
-                googlePlus:{site:'Google', action:'+1'},
-                facebook:{site:'facebook', action:'like'},
-                twitter:{site:'twitter', action:'tweet'},
-                digg:{site:'digg', action:'add'},
-                delicious:{site:'delicious', action:'add'},
-                stumbleupon:{site:'stumbleupon', action:'add'},
-                linkedin:{site:'linkedin', action:'share'},
-                pinterest:{site:'pinterest', action:'pin'}
+                googlePlus: {site: 'Google', action: '+1'},
+                facebook: {site: 'facebook', action: 'like'},
+                twitter: {site: 'twitter', action: 'tweet'},
+                digg: {site: 'digg', action: 'add'},
+                delicious: {site: 'delicious', action: 'add'},
+                stumbleupon: {site: 'stumbleupon', action: 'add'},
+                linkedin: {site: 'linkedin', action: 'share'},
+                pinterest: {site: 'pinterest', action: 'pin'}
             };
             _gaq.push(['_trackSocial', tracking[site].site, tracking[site].action]);
         }

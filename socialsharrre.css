@@ -33,7 +33,7 @@
     background: -o-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* Opera 11.10+ */
     background: -ms-linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* IE10+ */
     background: linear-gradient(top, #fbfbfb 0%, #f6f6f6 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#fbfbfb', endColorstr = '#f6f6f6', GradientType = 0); /* IE6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbfbfb', endColorstr='#f6f6f6', GradientType=0); /* IE6-9 */
 }
 
 .sharrre .share {

@@ -9,10 +9,10 @@ class socialsharrre extends Module
     {
         $this->name = 'socialsharrre';
         $this->tab = 'social_networks';
-        $this->version = '1.0';
+        $this->version = '1.1';
         $this->author = 'Carlos Rodriguez';
         $this->need_instance = 0;
-        $this->ps_versions_compliancy = array('min' => '1.5', 'max' => '1.5.3.2');
+        $this->ps_versions_compliancy = array('min' => '1.5', 'max' => '1.5.6.2');
 
         parent::__construct();
 
